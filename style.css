@@ -1,0 +1,116 @@
+body {
+    
+    background-image: url("https://cdn.vox-cdn.com/thumbor/8csW_DT10d8--2ImLNy85u1y-bo=/0x0:1536x864/1200x800/filters:focal(337x270:581x514)/cdn.vox-cdn.com/uploads/chorus_image/image/48434499/tfa_poster_wide_header-1536x864-324397389357.0.0.jpg");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  h1 {
+    font-family: sans-serif;
+    display: center;
+    color: blue;
+    font-size: 35px;
+     }
+  
+  .game {
+    min-height: fit-content;
+    width: 800px;
+    margin: auto
+  }
+
+    /* need to work on below
+  .score-board {
+    background-image:  url("./images/wood_background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100px;
+    width: inherit ;
+    border-radius: 5px;
+  }
+
+  .game-board { 
+    min-height: 600px;
+    width: inherit;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-image:  url("./images/table_cover.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+  /*css code for card flip adopted from w3 schools*/
+  .card {
+    height: 100px;
+    width: 70px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+
+   
+   .front-face, .back-face {
+    position: absolute;
+    border-radius: 5px;
+    width: inherit;
+    height: inherit;
+    backface-visibility: hidden;
+}
+
+  .back-face {
+    transform: rotateY(180deg);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+ }
+
+ #card-holder {
+  padding: 50px 200px
+ }
+
+ 
+button {
+  height: 250px;
+  width: 250px;
+  margin: 50px 145px;
+  background-color: rgb(white);
+  color:whitesmoke;
+  border-color: grey;
+  border-width: 5px;
+  display: inline-block;
+}
+
+
+h3 {
+  color: whitesmoke;
+  display: inline-block;
+  margin-left: 10px;
+}
+  
+
+.flipcard {
+  transform: rotateY(180deg);
+}
+
+.card-holder {
+  font-size: 25px;
+}
+
+h2 {
+  font-size: 30px;
+  color: yellow;
+}
+
+  /* alternative image link for background 
+  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThRQ6Sox1pTQTdELzJP3SSXi0vVL15yfNLTQ&usqp=CAU");
+
+display: center;
