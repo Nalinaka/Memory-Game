@@ -1,5 +1,5 @@
-const instructionsContainer = document.querySelector(".instructions-container");
-let cards [];
+const buttonsContainer = document.querySelector(".buttons-container");
+let cards = []
 let firstCard, secondCard; 
 let lockBoard = false; 
 let score = 0;
@@ -68,4 +68,33 @@ function matchCheck () {
     isMatch ? disableCards () : unflipCards();
 }
 
+function disableCards() {
+    firstCard.removeEventListener("click", flipCard);
+    secondCard.removeEventListener("click", flipCard);
+
+    resetBoard();
+}
+
+function unflipCards() {
+    setTimeout(() => {
+        firstCard.classList.remove("flipped");
+        secondCard.classList.remove("flipped");
+        resetBoard();
+    }, 1000);
+}
+
+function resetBoard() {
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false; 
+}
+
+function restart() {
+    resetBoard();
+    shuffleCards();
+    score = 0;
+    document.querySelector(".score").textContent = score;
+    gridContainer.innerHTML = "";
+    generateCards();
+}
 // following code from https://youtu.be/xWdkt6KSirw

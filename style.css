@@ -17,6 +17,7 @@ body {
       display: flex;
       align-content: stretch;
       flex-direction: row;
+      color: black;
     }
 
    .buttons-container {
@@ -39,17 +40,6 @@ body {
     position: absolute;
     right: 20px;
     text-align:center;
-  }
-
-  .left-side {
-    min-height: 300px;
-    width: 200px;
-    border-radius: 5px;
-    color: blue;
-    display: flex;
-    flex: 1 0 auto;
-    position: absolute;
-    left: 20px;
   }
  
   button {
