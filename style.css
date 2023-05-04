@@ -1,6 +1,6 @@
 body {
     
-    background-image: url("https://cdn.vox-cdn.com/thumbor/8csW_DT10d8--2ImLNy85u1y-bo=/0x0:1536x864/1200x800/filters:focal(337x270:581x514)/cdn.vox-cdn.com/uploads/chorus_image/image/48434499/tfa_poster_wide_header-1536x864-324397389357.0.0.jpg");
+    background-image: url("https://wallpapers.com/images/hd/star-wars-background-62aczam5f195c36n.jpg");
     background-color: #cccccc;
     background-repeat: no-repeat;
     background-size: cover;
@@ -8,44 +8,82 @@ body {
 
   h1 {
     font-family: sans-serif;
-    display: center;
+    text-align: center;
     color: blue;
     font-size: 35px;
      }
   
+  .instructions-container {
+      display: flex;
+      align-content: stretch;
+      flex-direction: row;
+    }
+
+   .buttons-container {
+    text-align: center;   
+
+   } 
   .game {
     min-height: fit-content;
-    width: 800px;
-    margin: auto
+    width: 500px;
+    margin: auto;
+    text-align: left;
+    color: blue;
   }
 
-    /* need to work on below
-  .score-board {
-    background-image:  url("./images/wood_background.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100px;
-    width: inherit ;
+  .right-side {
+    min-height: 500px;
+    width: 200px;
+    color: blue;
+    flex: 1 0 auto;
+    position: absolute;
+    right: 20px;
+    text-align:center;
+  }
+
+  .left-side {
+    min-height: 300px;
+    width: 200px;
     border-radius: 5px;
+    color: blue;
+    display: flex;
+    flex: 1 0 auto;
+    position: absolute;
+    left: 20px;
   }
-
-  .game-board { 
-    min-height: 600px;
-    width: inherit;
-    margin-top: 5px;
-    border-radius: 5px;
-    background-image:  url("./images/table_cover.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+ 
+  button {
+    height: 150px;
+    width: 150px;
+    margin: 50px 100px;
+    background-color: rgb(white);
+    color: blue;
+    border-color: grey;
+    border-width: 5px;
+    text-align:center;
+    display: inline-block;
+    border-radius: 50px;
+    display:center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
   }
-
-
+  
+  button {
+    height: 150px;
+    width: 150px;
+    margin: 50px 145px;
+    background-color: rgb(white);
+    color: black;
+    border-color: grey;
+    border-width: 5px;
+    text-align:center;
+    display: inline-block;
+    border-radius: 50px;
+  }
+  
   /*css code for card flip adopted from w3 schools*/
   .card {
     height: 100px;
-    width: 70px;
+    width: 100px;
     position: relative;
     cursor: pointer;
     display: inline-block;
@@ -56,16 +94,21 @@ body {
   }
 
    
-   .front-face, .back-face {
+   .front-image, .back-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    border-radius: 5px;
-    width: inherit;
-    height: inherit;
+    transform: rotateY  (180deg);
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
     backface-visibility: hidden;
 }
 
-  .back-face {
+  .back-image {
     transform: rotateY(180deg);
+    background-image: ("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='58' height='66.981' patternTransform='scale(1) rotate(150)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 3%, 52%, 1)'/><path d='M57.994 92.097l-14.498-8.37.002-16.745 14.5-8.373 14.498 8.37-.002 16.745zm-58 0l-14.498-8.37.002-16.745 14.5-8.374 14.498 8.37-.002 16.745zM29.002 8.372L14.504.002l.002-16.745 14.5-8.373 14.498 8.37-.002 16.744zm29 16.748l-14.498-8.37.002-16.745 14.5-8.373L72.504.002l-.002 16.744zm-58 0l-14.498-8.37.002-16.745 14.5-8.374L14.504.001l-.002 16.745zm57.996 33.489L43.5 50.239l.002-16.745 14.5-8.374L72.5 33.49l-.002 16.745zm-29.004 16.74l-14.498-8.37.002-16.744 14.5-8.374 14.498 8.37-.002 16.745zm.004-33.488L14.5 33.49l.002-16.745 14.5-8.374 14.498 8.37-.002 16.745zm-29 16.747l-14.498-8.37.002-16.744 14.5-8.374L14.5 33.49l-.002 16.745z'  stroke-width='1' stroke='none' fill='hsla(0, 27%, 15%, 1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(-66,-46.962)' fill='url(%23a)'/></svg>")
   }
 
   img {
@@ -77,33 +120,21 @@ body {
   padding: 50px 200px
  }
 
- 
-button {
-  height: 250px;
-  width: 250px;
-  margin: 50px 145px;
-  background-color: rgb(white);
-  color:whitesmoke;
-  border-color: grey;
-  border-width: 5px;
-  display: inline-block;
-}
 
-
-h3 {
-  color: whitesmoke;
-  display: inline-block;
-  margin-left: 10px;
-}
-  
-
-.flipcard {
+ .card-flipped {
   transform: rotateY(180deg);
 }
 
 .card-holder {
   font-size: 25px;
 }
+
+/*h3 {
+  color: whitesmoke;
+  display: inline-block;
+  margin-left: 10px;
+}
+  
 
 h2 {
   font-size: 30px;
@@ -114,3 +145,13 @@ h2 {
   /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThRQ6Sox1pTQTdELzJP3SSXi0vVL15yfNLTQ&usqp=CAU");
 
 display: center;
+
+  .game-board { 
+    min-height: 600px;
+    width: inherit;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-image:  url("./images/table_cover.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
