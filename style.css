@@ -21,9 +21,15 @@ body {
     }
 
    .buttons-container {
-    text-align: center;   
+    text-align: center;  
+   }
+  
+   .board-container {
+     display: flexbox;
+     width: 1000px; 
+     height: 1000px;
+  }
 
-   } 
   .game {
     min-height: fit-content;
     width: 500px;
@@ -57,7 +63,7 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
   }
  
-  .score {
+  /*.score {
     height: 150px;
     width: 150px;
     margin: 50px 100px;
@@ -81,8 +87,7 @@ body {
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   }
-
-   
+    
    .front-image, .back-image {
     display: flex;
     justify-content: center;
