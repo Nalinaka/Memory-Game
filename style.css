@@ -56,20 +56,19 @@ body {
     display:center;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
   }
-  
-  button {
+ 
+  .score {
     height: 150px;
     width: 150px;
-    margin: 50px 145px;
-    background-color: rgb(white);
-    color: black;
-    border-color: grey;
-    border-width: 5px;
+    margin: 50px 100px;
+    color: blue;
     text-align:center;
     display: inline-block;
-    border-radius: 50px;
+    border-radius: 100px;
+    display:center;
+    text-size-adjust: 500px;
+
   }
-  
   /*css code for card flip adopted from w3 schools*/
   .card {
     height: 100px;
