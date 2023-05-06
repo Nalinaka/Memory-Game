@@ -35,6 +35,10 @@
     // write a match function - completed 
 
     
+  // random element assign from card id - to card
+  // random card from card array and assign to first div created and as part of that populate info from card array
+
+    
    // Additional code never used 
 
 //event listener for quit button

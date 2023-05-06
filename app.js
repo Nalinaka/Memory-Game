@@ -47,19 +47,36 @@
 const playButton = document.querySelector("#PLAY")
 playButton.addEventListener('click', createBoard)
 
+// document.getElementById('cards').appendChild(img)
 
 function createBoard () {
-    shuffleCards(cardArray)
-    // const addCards = document.querySelector("addcards")
+    
     for (let x=0; x < cardArray.length; x++) {
+        // insert Hexagon background
+        let img = document.createElement('img');
+        img.src = 'assets/pattern_hexagon-4_1_5_0-0_110_1__ffffff_868998.png'
         let card = document.createElement('div')
         card.setAttribute('data-name', cardArray[x].name)
-        card.innerText = cardArray[x].name
-        card.style.backgroundImage = "url(" + cardArray[x].img + ")"
-        boardContainer.append(card)
+        card.innerText = ""
+        card.append(img)
         card.classList.add('card')
+        // insert character background
+        let img2 = document.createElement('img')
+        img2.src = cardArray[x].img
+        card.append(img2)
+        boardContainer.append(card)
+        card.addEventListener('click', flipCard)
     }
     }
+    //       card.style.display = "none"
+    // Unable to use this with front image url
+      // const addCards = document.querySelector("addcards")
+
+      //cardArray[x].name
+
+              //body.style.frontImage=`url(${assets\pattern_hexagon-4_1_5_0-0_110_1__ffffff_868998.png})`;
+        //card.style.backgroundImage = "url(" + cardArray[x].img + ")"
+        // shuffleCards(cardArray)
 
     function shuffleCards(cardArray) {
         let currentIndex = cardArray.length,
@@ -74,18 +91,18 @@ function createBoard () {
             }
                    }
 
-function getBackImage(i) {
-    let imageArray = game.shuffledBackImages
-    return imageArray[i]
-   }
+//  //  getFrontImage() {
+//    frontCard.src="assets\pattern_hexagon-4_1_5_0-0_110_1__ffffff_868998.png";
+//   context.drawImage(frontCard,width,height);
+//   return imageArray[]
     
-  
-  // random element assign from card id - to card
-  // random card from card array and assign to first div created and as part of that populate info from card array
+//    }
 
-
+// Write event listener for flipCard
+// const playButton = document.querySelector("#PLAY")
+// playButton.addEventListener('click', createBoard)
+    
 function flipCard () {
-    if(lockBoard) return;
     if (this === firstCard) return;
 
     this.classList.add("flipped");
@@ -93,14 +110,11 @@ function flipCard () {
     if (!firstCard) {
         firstCard = this;
         return; 
-
-    if (secondCard) = this;
-    score ++;
-    document.querySelector(".score").textContent = score;
-    lockBoard = true;
     }
-function matchCheck ();
-  
+    if (secondCard == firstCard) {{
+
+    }}
+    matchCheck ();
 }
 
 function matchCheck () {
@@ -135,7 +149,7 @@ function restart() {
     shuffleCards();
     score = 0;
     document.querySelector(".score").textContent = score;
-    gridContainer.innerHTML = "";
+    boardContainer.innerHTML = "";
     generateCards();
 }
 // following code above from https://youtu.be/xWdkt6KSirw
@@ -175,7 +189,7 @@ setTimeout(()=> popup.style.display = "flex" ,300);
     
 // const buttonsContainer = document.querySelector(".buttons-container");
 // let cards = []
-// let firstCard, secondCard; 
+let firstCard, secondCard; 
 // let lockBoard = false; 
 // let score = 0;
 
