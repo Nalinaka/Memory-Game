@@ -29,7 +29,8 @@
        
     ]
 
-    const boardContainer = document.getElementById("Board-Container")
+
+    const boardContainer = document.getElementById("Board-container")
 
 
     // const game = {
@@ -43,93 +44,109 @@
     // }
     
     //event listener for play button
-const playButton = document.querySelector("#play")
+const playButton = document.querySelector("#PLAY")
 playButton.addEventListener('click', createBoard)
-
-//event listener for quit button
-//const quitButton = document.querySelector("#quit")
-
-// // discuss below code 
-// playButton.style.cursor = 'default'
-// playButton.removeEventListener('click', addCards)
-// quitButton.addEventListener('click', quitGame)
-// gameStart()
 
 
 function createBoard () {
+    shuffleCards(cardArray)
     // const addCards = document.querySelector("addcards")
     for (let x=0; x < cardArray.length; x++) {
         let card = document.createElement('div')
-        boardContainer.appendChild(card)
-    
+        card.setAttribute('data-name', cardArray[x].name)
+        card.innerText = cardArray[x].name
+        card.style.backgroundImage = "url(" + cardArray[x].img + ")"
+        boardContainer.append(card)
+        card.classList.add('card')
+    }
     }
 
-     //   card.addEventListener('click, flipCard')
+    function shuffleCards(cardArray) {
+        let currentIndex = cardArray.length,
+          randomIndex,
+          temporaryValue;
+           while(currentIndex !==0) {
+           randomIndex = Math.floor(Math.random() * currentIndex);
+           currentIndex -= 1,
+           temporaryValue = cardArray[currentIndex];
+           cardArray[currentIndex] = cardArray[randomIndex];
+           cardArray[randomIndex] = temporaryValue;
+            }
+                   }
+
+function getBackImage(i) {
+    let imageArray = game.shuffledBackImages
+    return imageArray[i]
+   }
+    
+  
+  // random element assign from card id - to card
+  // random card from card array and assign to first div created and as part of that populate info from card array
+
+
+function flipCard () {
+    if(lockBoard) return;
+    if (this === firstCard) return;
+
+    this.classList.add("flipped");
+
+    if (!firstCard) {
+        firstCard = this;
+        return; 
+
+    if (secondCard) = this;
+    score ++;
+    document.querySelector(".score").textContent = score;
+    lockBoard = true;
+    }
+function matchCheck ();
+  
 }
 
-// function flipCard () {
-//     if(lockBoard) return;
-//     if (this === firstCard) return;
+function matchCheck () {
+    let isMatch = firstCard.datasetname === secondCard.dataset.name;
 
-//     this.classList.add("flipped");
+    isMatch ? disableCards () : unflipCards();
+}
 
-//     if (!firstCard) {
-//         firstCard = this;
-//         return; 
+function disableCards() {
+    firstCard.removeEventListener("click", flipCard);
+    secondCard.removeEventListener("click", flipCard);
 
-//     if (secondCard) = this;
-//     score ++;
-//     document.querySelector(".score").textContent = score;
-//     lockBoard = true;
-//     }
-// function matchCheck ();
-  
-// }
+    resetBoard();
+}
 
-// function matchCheck () {
-//     let isMatch = firstCard.datasetname === secondCard.dataset.name;
+function unflipCards() {
+    setTimeout(() => {
+        firstCard.classList.remove("flipped");
+        secondCard.classList.remove("flipped");
+        resetBoard();
+    }, 1000);
+}
 
-//     isMatch ? disableCards () : unflipCards();
-// }
+function resetBoard() {
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false; 
+}
 
-// function disableCards() {
-//     firstCard.removeEventListener("click", flipCard);
-//     secondCard.removeEventListener("click", flipCard);
-
-//     resetBoard();
-// }
-
-// function unflipCards() {
-//     setTimeout(() => {
-//         firstCard.classList.remove("flipped");
-//         secondCard.classList.remove("flipped");
-//         resetBoard();
-//     }, 1000);
-// }
-
-// function resetBoard() {
-//     firstCard = null;
-//     secondCard = null;
-//     lockBoard = false; 
-// }
-
-// function restart() {
-//     resetBoard();
-//     shuffleCards();
-//     score = 0;
-//     document.querySelector(".score").textContent = score;
-//     gridContainer.innerHTML = "";
-//     generateCards();
-// }
-// // following code above from https://youtu.be/xWdkt6KSirw
+function restart() {
+    resetBoard();
+    shuffleCards();
+    score = 0;
+    document.querySelector(".score").textContent = score;
+    gridContainer.innerHTML = "";
+    generateCards();
+}
+// following code above from https://youtu.be/xWdkt6KSirw
 
 
-// function checkWon() {
-// if (cardsWon == cardArray.length / 2) {
-// alert("You won") 
-// setTimeout(()=> popup.style.display = "flex" ,300); 
-// }
-// }
+function checkWon() {
+if (cardsWon == cardArray.length / 2) {
+alert("You won") 
+setTimeout(()=> popup.style.display = "flex" ,300); 
+}
+}
 
 
 // // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKnm5e6G5H021X9UBvvaDR5-wWIbyAJ6m5A&usqp=CAU
@@ -174,26 +191,6 @@ function createBoard () {
 
    // player.innerHTML = ''
 
-    // function getBackImage(i) {
-    //     let imageArray = game.shuffledBackImages
-    //     return imageArray[i]
-    //  }}
      
-    // function shuffleCards(cardArray) {
-    //     let currentIndex = cards.length,
-    //     randomIndex,
-    //     temporaryValue;
-    //     while(currentIndex !==0) {
-    //         randomIndex = Math.floor(Math.random() * currentIndex);
-    //         currentIndex -= 1;
-    //     }
-    //            }
-    // }
-
-
-       //     temporaryValue = cards[currentIndex];
-         //   cards[currentIndex] = cards[randomIndex];
-          //  cards[randomIndex] = temporaryValue;
- 
         //remove event listener from play button once cards are added to the card holder
      
