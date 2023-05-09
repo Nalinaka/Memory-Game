@@ -4,6 +4,7 @@
     //define functions 
     // fit screen in css or late
 
+    let shuffledCardArray = []
 
     let cardArray = [
         {name: "Yoda", id:"Yoda1", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ApB54YlPe5lmJ41Zo415suCA9sWim_aTHA&usqp=CAU", },
@@ -27,7 +28,7 @@
         {name: "Ashoka Tano", id:"AshokaTano1", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtmkuqrN4Dz80Qs5bbL4M5999OUNtXLIQRMA&usqp=CAU", },
         {name: "Ashoka Tano", id:"AshokaTano2", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtmkuqrN4Dz80Qs5bbL4M5999OUNtXLIQRMA&usqp=CAU", },
        
-    ]
+    ];
 
 
     const boardContainer = document.getElementById("Board-container")
@@ -49,25 +50,41 @@ playButton.addEventListener('click', createBoard)
 
 // document.getElementById('cards').appendChild(img)
 
-function createBoard () {
-    
-    for (let x=0; x < cardArray.length; x++) {
-        // insert Hexagon background
-        let img = document.createElement('img');
-        img.src = 'assets/pattern_hexagon-4_1_5_0-0_110_1__ffffff_868998.png'
-        let card = document.createElement('div')
-        card.setAttribute('data-name', cardArray[x].name)
-        card.innerText = ""
-        card.append(img)
-        card.classList.add('card')
+function createBoard() {
+    shuffleCards(cardArray);
+	for (let x = 0; x < cardArray.length; x++) {
+		// insert Hexagon background
+		let img = document.createElement("img");
+		img.src = "assets/pattern_hexagon-4_1_5_0-0_110_1__ffffff_868998.png";
+	        img.style.width = "100px"
+        img.style.height = "100px"
+
         // insert character background
         let img2 = document.createElement('img')
         img2.src = cardArray[x].img
+        img2.style.width="100px"
+        img2.style.height="100px"
+        
+	let card = document.createElement("div");
+        // card.setAttribute("id", cardArray[x].id);
+				card.setAttribute("data-name", cardArray[x].name);
+				card.setAttribute("class", "each-card");
+        card.append(img)
         card.append(img2)
-        boardContainer.append(card)
         card.addEventListener('click', flipCard)
-    }
-    }
+        boardContainer.append(card);
+		// card.addEventListener("click", flipCard);
+		//
+
+
+		
+	}
+    // return boardContainer
+}
+    
+
+    // Above was taken out of createBoard
+
     //       card.style.display = "none"
     // Unable to use this with front image url
       // const addCards = document.querySelector("addcards")
@@ -86,14 +103,17 @@ function createBoard () {
         let currentIndex = cardArray.length,
           randomIndex,
           temporaryValue;
-           while(currentIndex !==0) {
+
+        while(currentIndex !==0) {
            randomIndex = Math.floor(Math.random() * currentIndex);
            currentIndex -= 1,
            temporaryValue = cardArray[currentIndex];
            cardArray[currentIndex] = cardArray[randomIndex];
            cardArray[randomIndex] = temporaryValue;
-            }
+        }
                    }
+
+                                  
 
 //  //  getFrontImage() {
 //    frontCard.src="assets\pattern_hexagon-4_1_5_0-0_110_1__ffffff_868998.png";
@@ -107,6 +127,7 @@ function createBoard () {
 // playButton.addEventListener('click', createBoard)
     
 function flipCard () {
+    console.log(this);
     if (this === firstCard) return;
 
     this.classList.add("flipped");
@@ -115,10 +136,11 @@ function flipCard () {
         firstCard = this;
         return; 
     }
-    if (secondCard == firstCard) {{
-
-    }}
-    matchCheck ();
+    secondCard = this;
+    if (secondCard == firstCard) {
+        matchCheck ();
+    }
+   
 }
 
 // CHECK IS THE BELOW EVENT LISTENER CORRECT??

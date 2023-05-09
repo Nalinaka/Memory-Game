@@ -58,11 +58,7 @@ body {
     display:center;
     box-shadow: 0 0 10px rgba(188, 7, 46, 0.834);
   }
- 
-.container:hover > .card {
-  cursor: pointer;
-  transform: rotateY(180deg)
-}
+
   .card {
     height: 125px;
     width: 125px;
@@ -81,6 +77,13 @@ body {
    transition: all .5s linear;*/
    border-radius:10px;
 
+  }
+
+  .each-card {
+  z-index: 1;
+  }
+  .each-card.flipped {
+    /* all the character bacground stuff */
   }
 
    .img, .img2 {
