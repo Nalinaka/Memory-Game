@@ -59,8 +59,8 @@ The logic of this game is to choose two matching cards from an array of cards li
 With each matched pair whether a Sith or Jedi, the ultimate outcome is to determine your 
 true identity, of either Sith or Jedi! 
 
-The decisions of the player are very simple, as the player clicks through random cards it 
-will see matching cards, and then choose two matching cards, until it has picked up all
+The decisions of the player are very simple, once player clicks play, they start clicking through random cards
+until two cards are matched. If cards are not matched the cards will unflip, until it has picked up all
 choices available. However this game is weighted in a way that determines the winning 
 score of identity, not points. 
 
@@ -71,14 +71,16 @@ As they continue along, each time they find matching cards, the system will bloc
 wait for the next set of magic cards. 
 
 When all matching cards are obtained, based on the formula designed by the programmer, it will then 
-display results of the players identity. 
+display results of the players identity. There are a total of 10 matched cards.
 
-The writing should describe in plain, simple language the logic of the game.
-Describe the logic involved in player decisions.
-  - What are the choices available to the player?
-  - What happens when the player makes a choice?
-Describe the logic that evaluates the player's victory/loss/progress status.
-```
+At anytime should the player get frustrated they can click quit to exit the game.
+Each time a play makes a choice, it is a reminder for them to remember the positions of the images. 
+This game focuses on memory and checking the same cards and their location.
+
+A function was written to weigh the outcome of the game, based on the first cards picked influencing the overall score. 
+If the first 5 matches for instances, were dark side cards then the actual likelihood of them being a Sith was 
+programmed as the outcome. Each match was weighted from score 10 down to 0. So the final number of good and bad side 
+cards were added up based on the scores assigned.
 
 ## Deliverables
 
@@ -88,9 +90,7 @@ We'll refer to your project completion goal using the term **[Minimum Viable Pro
 >
 >*Don't lose sight of your big ideas, though! Keep a list of further improvements you can refer to as **Post-MVP Ideas**. 
 You might finish some before our project time is done, or you might work on them later!*
->
-> For your README, delete this blockquote and fill in the lists below.
-
+**Delete above once written**
 
 ### MVP Criteria
 
