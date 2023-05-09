@@ -59,34 +59,47 @@ body {
     box-shadow: 0 0 10px rgba(188, 7, 46, 0.834);
   }
 
-  .card {
-    height: 125px;
-    width: 125px;
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    margin-left: 5px;
+  .each-card.flipped {
     transform: rotateY(180deg);
     transition: transform 1500ms;
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-   /*-webkit-transform-style: preserve-3d;
-   -webkit-transition: all .5s linear;
-   transition: all .5s linear;*/
-   border-radius:10px;
-
+    border-radius:10px;
   }
 
   .each-card {
-  z-index: 1;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    float:left;
+
+    /*Do it with flexbox or grid for above, once code is working, can play around*/
+    
   }
-  .each-card.flipped {
-    /* all the character bacground stuff */
+  .each-card>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
   }
 
-   .img, .img2 {
+  /*make animation in future - smooth flip, not essential */
+  .each-card>img:last-child {
+    transform: rotateY(180deg);
+  }
+
+  /*hexagon card*/
+  .each-card>img:first-child {
+    z-index: 1;
+  }
+
+    /*character card*/
+  .each-card.flipped>img:last-child {
+    z-index: 2;
+  }
+   /* .img, .img2 {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -97,8 +110,8 @@ body {
     height: 100%;
     transform-style: preserve-3d;
   /*  backface-visibility: hidden; */
-    
-}
+     
+
 
   .img2 {
     transform: rotateY(180deg);

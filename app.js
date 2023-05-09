@@ -7,7 +7,7 @@
     let shuffledCardArray = []
 
     let cardArray = [
-        {name: "Yoda", id:"Yoda1", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ApB54YlPe5lmJ41Zo415suCA9sWim_aTHA&usqp=CAU", },
+        {name: "Yoda", id:"Yoda1", lightSide: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ApB54YlPe5lmJ41Zo415suCA9sWim_aTHA&usqp=CAU", },
         {name: "Yoda", id:"Yoda2", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ApB54YlPe5lmJ41Zo415suCA9sWim_aTHA&usqp=CAU", },
         {name: "Grogu", id:"Grogu1", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2JPwGc930J9FkQ2fxykEUWlUkCwtotSbmHg&usqp=CAU", },
         {name: "Grogu", id:"Grogu2", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2JPwGc930J9FkQ2fxykEUWlUkCwtotSbmHg&usqp=CAU", },
@@ -33,16 +33,6 @@
 
     const boardContainer = document.getElementById("Board-container")
 
-
-    // const game = {
-    //     backImages: [cardArray],
-    //     cardsSelected: [],
-    //     cardsMatched: [],
-    //     pendingMoves: 100, 
-    //     shuffledBackImages: [],
-    //     time: 0,
-    //     timeInterval: 0
-    // }
     
     //event listener for play button
 const playButton = document.querySelector("#PLAY")
@@ -73,17 +63,11 @@ function createBoard() {
         card.append(img2)
         card.addEventListener('click', flipCard)
         boardContainer.append(card);
-		// card.addEventListener("click", flipCard);
-		//
-
-
 		
 	}
-    // return boardContainer
 }
     
-
-    // Above was taken out of createBoard
+// Above was taken out of createBoard
 
     //       card.style.display = "none"
     // Unable to use this with front image url
@@ -94,10 +78,6 @@ function createBoard() {
               //body.style.frontImage=`url(${assets\pattern_hexagon-4_1_5_0-0_110_1__ffffff_868998.png})`;
         //card.style.backgroundImage = "url(" + cardArray[x].img + ")"
         // shuffleCards(cardArray)
-
-     //   CHECK IF CODE BELOW FOR EVENT LISTENER IS CORRECT //
-    // const shuffleCards = document.querySelector("#PLAY")
-    // shuffleCards.addEventListener('click', shuffleCards)
 
     function shuffleCards(cardArray) {
         let currentIndex = cardArray.length,
@@ -113,19 +93,7 @@ function createBoard() {
         }
                    }
 
-                                  
-
-//  //  getFrontImage() {
-//    frontCard.src="assets\pattern_hexagon-4_1_5_0-0_110_1__ffffff_868998.png";
-//   context.drawImage(frontCard,width,height);
-//   return imageArray[]
-    
-//    }
-
-// Write event listener for flipCard
-// const playButton = document.querySelector("#PLAY")
-// playButton.addEventListener('click', createBoard)
-    
+                               
 function flipCard () {
     console.log(this);
     if (this === firstCard) return;
@@ -137,23 +105,25 @@ function flipCard () {
         return; 
     }
     secondCard = this;
-    if (secondCard == firstCard) {
-        matchCheck ();
+    console.log(firstCard,secondCard);
+    if (secondCard.getAttribute('data-name') === firstCard.getAttribute('data-name')) {
+        disableCards ();
+        addWeightedValue(firstCard)
+    } else {
+        unflipCards ();
     }
-   
 }
 
 // CHECK IS THE BELOW EVENT LISTENER CORRECT??
 // const matchCheck = document.querySelector("#flipCard")
 // playButton.addEventListener('click', matchCheck)
 
-function matchCheck () {
-    let isMatch = firstCard.datasetname === secondCard.dataset.name;
+//No need for below //
+// function matchCheck () {
+//     let isMatch = firstCard.datasetname === secondCard.dataset.name;
 
-    isMatch ? disableCards () : unflipCards();
-}
-
-// CHECK BELOW CODE:
+//     isMatch ? disableCards () : unflipCards();
+// }
 
 //const disableCards = document.querySelector("#matchCheck")
 // playButton.addEventListener('click', disableCards)
@@ -162,8 +132,8 @@ function matchCheck () {
 function disableCards() {
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
-
     resetBoard();
+
 }
 
 //Check below event listener - need assistance to fix this one:
@@ -204,8 +174,18 @@ setTimeout(()=> popup.style.display = "flex" ,300);
 }
 }
 
+let firstCard, secondCard;
+let weight = 10;
 
-let firstCard, secondCard; 
+function addWeightedValue(card) {
+    if (card.lightSide) {
+        lightScore += 1 * weight;
+    } else {
+        darkScore += 1* weight;
+    }
+    weight--;
+}
+
 
 // // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKnm5e6G5H021X9UBvvaDR5-wWIbyAJ6m5A&usqp=CAU
 
