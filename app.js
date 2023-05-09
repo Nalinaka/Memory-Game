@@ -4,32 +4,39 @@
     //define functions 
     // fit screen in css or late
 
+    let lightScore = 0
+    let darkScore = 0
+
+
+    let weight = 10;
+
     let shuffledCardArray = []
 
     let cardArray = [
-        {name: "Yoda", id:"Yoda1", lightSide: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ApB54YlPe5lmJ41Zo415suCA9sWim_aTHA&usqp=CAU", },
-        {name: "Yoda", id:"Yoda2", lightside: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ApB54YlPe5lmJ41Zo415suCA9sWim_aTHA&usqp=CAU", },
-        {name: "Grogu", id:"Grogu1", lightside: true,  img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2JPwGc930J9FkQ2fxykEUWlUkCwtotSbmHg&usqp=CAU", },
-        {name: "Grogu", id:"Grogu2", lightside: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2JPwGc930J9FkQ2fxykEUWlUkCwtotSbmHg&usqp=CAU", },
-        {name: "Darth Vader", id:"DarthVader1", darkside: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZuxLoZiu9cyoCq5fwPK3W5pIqhFlAQeEcyA&usqp=CAU", },
-        {name: "Darth Vader", id:"DarthVader2", darkside: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZuxLoZiu9cyoCq5fwPK3W5pIqhFlAQeEcyA&usqp=CAU", },
-        {name: "Darth Maul", id:"DarthMaul1", darkside: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1wcFyVnejaqJWWu1940Nte5ifeKMiPbrlbA&usqp=CAU", },
-        {name: "Darth Maul", id:"DarthMaul2", darkside: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1wcFyVnejaqJWWu1940Nte5ifeKMiPbrlbA&usqp=CAU", },
-        {name: "Jabba the Hutt", id:"JabbatheHutt1", darkside: true, img:"https://tinyurl.com/3m7kj4n7", },
-        {name: "Jabba the Hutt", id:"JabbatheHutt2", darkside: true, img:"https://tinyurl.com/3m7kj4n7", },
-        {name: "Hans Solo", id:"HansSolo1", lightSide: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYM7DA6gL2xgCP8lkybHNNImEMirwuX4zqyQ&usqp=CAU", },
-        {name: "Hans Solo", id:"HansSolo2", lightSide: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYM7DA6gL2xgCP8lkybHNNImEMirwuX4zqyQ&usqp=CAU", },
-        {name: "Kylo Ren", id:"KyloRen1", darkside: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6b1PyzX_LhHkeMykPjW2kBUQFGukAcT_3ew&usqp=CAU", },
-        {name: "Kylo Ren", id:"KyloRen2", darkside: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6b1PyzX_LhHkeMykPjW2kBUQFGukAcT_3ew&usqp=CAU", },
-        {name: "The Mandalorian", id:"TheMandalorian1", lightSide: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKnm5e6G5H021X9UBvvaDR5-wWIbyAJ6m5A&usqp=CAU", },
-        {name: "The Mandalorian", id:"TheMandalorian2", lightSide: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKnm5e6G5H021X9UBvvaDR5-wWIbyAJ6m5A&usqp=CAU", },
-        {name: "Barriss Offee", id:"BarrissOffee1", darkside: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_6AfhevbacAZ9exIjIuZvyseziI6NE6T9eg&usqp=CAU", },
-        {name: "Barriss Offee", id:"BarrissOffee2", darkside: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_6AfhevbacAZ9exIjIuZvyseziI6NE6T9eg&usqp=CAU", },
-        {name: "Ashoka Tano", id:"AshokaTano1", lightSide: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtmkuqrN4Dz80Qs5bbL4M5999OUNtXLIQRMA&usqp=CAU", },
-        {name: "Ashoka Tano", id:"AshokaTano2", lightSide: true, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtmkuqrN4Dz80Qs5bbL4M5999OUNtXLIQRMA&usqp=CAU", },
+        {name: "Yoda", id:"Yoda1", lightSide: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ApB54YlPe5lmJ41Zo415suCA9sWim_aTHA&usqp=CAU", },
+        {name:"Yoda", id:"Yoda2", lightside: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ApB54YlPe5lmJ41Zo415suCA9sWim_aTHA&usqp=CAU", },
+        {name: "Grogu", id:"Grogu1", lightside: true, flipped: false,  img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2JPwGc930J9FkQ2fxykEUWlUkCwtotSbmHg&usqp=CAU", },
+        {name: "Grogu", id:"Grogu2", lightside: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2JPwGc930J9FkQ2fxykEUWlUkCwtotSbmHg&usqp=CAU", },
+        {name: "Darth Vader", id:"DarthVader1", darkside: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZuxLoZiu9cyoCq5fwPK3W5pIqhFlAQeEcyA&usqp=CAU", },
+        {name: "Darth Vader", id:"DarthVader2", darkside: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZuxLoZiu9cyoCq5fwPK3W5pIqhFlAQeEcyA&usqp=CAU", },
+        {name: "Darth Maul", id:"DarthMaul1", darkside: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1wcFyVnejaqJWWu1940Nte5ifeKMiPbrlbA&usqp=CAU", },
+        {name: "Darth Maul", id:"DarthMaul2", darkside: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1wcFyVnejaqJWWu1940Nte5ifeKMiPbrlbA&usqp=CAU", },
+        {name: "Jabba the Hutt", id:"JabbatheHutt1", darkside: true, flipped: false, img:"https://tinyurl.com/3m7kj4n7", },
+        {name: "Jabba the Hutt", id:"JabbatheHutt2", darkside: true, flipped: false, img:"https://tinyurl.com/3m7kj4n7", },
+        {name: "Hans Solo", id:"HansSolo1", lightSide: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYM7DA6gL2xgCP8lkybHNNImEMirwuX4zqyQ&usqp=CAU", },
+        {name: "Hans Solo", id:"HansSolo2", lightSide: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYM7DA6gL2xgCP8lkybHNNImEMirwuX4zqyQ&usqp=CAU", },
+        {name: "Kylo Ren", id:"KyloRen1", darkside: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6b1PyzX_LhHkeMykPjW2kBUQFGukAcT_3ew&usqp=CAU", },
+        {name: "Kylo Ren", id:"KyloRen2", darkside: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6b1PyzX_LhHkeMykPjW2kBUQFGukAcT_3ew&usqp=CAU", },
+        {name: "The Mandalorian", id:"TheMandalorian1", lightSide: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKnm5e6G5H021X9UBvvaDR5-wWIbyAJ6m5A&usqp=CAU", },
+        {name: "The Mandalorian", id:"TheMandalorian2", lightSide: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKnm5e6G5H021X9UBvvaDR5-wWIbyAJ6m5A&usqp=CAU", },
+        {name: "Barriss Offee", id:"BarrissOffee1", darkside: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_6AfhevbacAZ9exIjIuZvyseziI6NE6T9eg&usqp=CAU", },
+        {name: "Barriss Offee", id:"BarrissOffee2", darkside: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_6AfhevbacAZ9exIjIuZvyseziI6NE6T9eg&usqp=CAU", },
+        {name: "Ashoka Tano", id:"AshokaTano1", lightSide: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtmkuqrN4Dz80Qs5bbL4M5999OUNtXLIQRMA&usqp=CAU", },
+        {name: "Ashoka Tano", id:"AshokaTano2", lightSide: true, flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtmkuqrN4Dz80Qs5bbL4M5999OUNtXLIQRMA&usqp=CAU", },
        
     ];
 
+    let allCards = 0
 
     const boardContainer = document.getElementById("Board-container")
 
@@ -83,7 +90,8 @@ function createBoard() {
            cardArray[randomIndex] = temporaryValue;
         }
                    }
-
+                  
+let firstCard, secondCard;
                                
 function flipCard () {
     console.log(this);
@@ -99,12 +107,23 @@ function flipCard () {
     console.log(firstCard,secondCard);
     if (secondCard.getAttribute('data-name') === firstCard.getAttribute('data-name')) {
         disableCards ();
-
+     firstCard.flipped = true;
+     secondCard.flipped = true;
      addWeightedValue(firstCard)
 
     } else {
         unflipCards ();
     }
+}
+
+
+function addWeightedValue(winningCard) {
+    if (winningCard.lightSide) {
+        lightScore += 1 * weight;
+    } else {
+        darkScore += 1* weight;
+    }
+    weight--;
 }
 
 function disableCards() {
@@ -139,24 +158,29 @@ function restart() {
 
 
 function checkWon() {
-if (cardsWon == cardArray.length / 2) {
-alert("You won") 
-setTimeout(()=> popup.style.display = "flex" ,300); 
-}
-}
+    for (let i = 0; i < cardArray.length; i++) {
 
-let firstCard, secondCard;
-let weight = 10;
-
-function addWeightedValue(card) {
-    if (card.lightSide) {
-        lightScore += 1 * weight;
-    } else {
-        darkScore += 1* weight;
+    if (cardArray[i].flipped = true) {  
+        allCards++
+        if ((allCards===20) && (lightScore > darkScore)){
+            alert("You are a Jedi!")
+        
+            } else if((allCards===20) && (lightScore < darkScore)){
+            alert("You are a Sith!")
+        }
     }
-    weight--;
+    
+}
 }
 
+    // Initially used: 
+
+    // function checkWon() {
+    //     if (cardsWon == cardArray.length / 2) {
+    //     alert("You won") 
+    //     setTimeout(()=> popup.style.display = "flex" ,300); 
+    //     }
+    //     }
 
 // // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKnm5e6G5H021X9UBvvaDR5-wWIbyAJ6m5A&usqp=CAU
 
