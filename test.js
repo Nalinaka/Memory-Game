@@ -38,6 +38,13 @@
   // random element assign from card id - to card
   // random card from card array and assign to first div created and as part of that populate info from card array
 
+  
+//const matchCheck = document.querySelector("#flipCard")
+// playButton.addEventListener('click', matchCheck)
+
+// CHECK IS THE BELOW EVENT LISTENER CORRECT??
+// const matchCheck = document.querySelector("#flipCard")
+// playButton.addEventListener('click', matchCheck)
     
    // Additional code never used 
 

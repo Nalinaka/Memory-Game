@@ -43,7 +43,7 @@ playButton.addEventListener('click', createBoard)
 function createBoard() {
     shuffleCards(cardArray);
     // remove existing divs with class of each card, so it doesn't create board twice once click enter, add light side and dark side
-    // document.querySelector('.each-card').remove()
+   //  document.querySelector('.each-card').remove()
 	for (let x = 0; x < cardArray.length; x++) {
 		// insert Hexagon background
 		let img = document.createElement("img");
@@ -99,15 +99,13 @@ function flipCard () {
     console.log(firstCard,secondCard);
     if (secondCard.getAttribute('data-name') === firstCard.getAttribute('data-name')) {
         disableCards ();
-        addWeightedValue(firstCard)
+
+     addWeightedValue(firstCard)
+
     } else {
         unflipCards ();
     }
 }
-
-// CHECK IS THE BELOW EVENT LISTENER CORRECT??
-// const matchCheck = document.querySelector("#flipCard")
-// playButton.addEventListener('click', matchCheck)
 
 function disableCards() {
     firstCard.removeEventListener("click", flipCard);
@@ -115,13 +113,6 @@ function disableCards() {
     resetBoard();
 
 }
-
-//Check below event listener - need assistance to fix this one:
-
-//const matchCheck = document.querySelector("#flipCard")
-// playButton.addEventListener('click', matchCheck)
-
-
 function unflipCards() {
     setTimeout(() => {
         firstCard.classList.remove("flipped");
