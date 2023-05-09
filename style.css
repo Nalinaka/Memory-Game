@@ -74,7 +74,7 @@ body {
     float:left;
 
     /*Do it with flexbox or grid for above, once code is working, can play around*/
-    
+
   }
   .each-card>img {
     position: absolute;
@@ -95,6 +95,8 @@ body {
     z-index: 1;
   }
 
+  /*use flexbox for styling cards*/
+  
     /*character card*/
   .each-card.flipped>img:last-child {
     z-index: 2;
