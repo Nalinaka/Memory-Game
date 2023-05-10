@@ -14,21 +14,26 @@ body {
     font-size: 25px;
      }
   
-  .instructions-container {
+  /* .instructions-container {
       display: flex;
       align-content: stretch;
       flex-direction: column;
       opacity: 2;
-    }
+    } */
 
    .buttons-container {
     text-align: center;  
    }
   
-   .board-container {
-     display: flexbox;
-     width: 1000px; 
-     height: 1000px;
+   #Board-container {
+     display: grid;
+     justify-content: center;
+     width: 750px; 
+     height: 750px;
+     grid-template-columns: auto auto auto auto auto;
+     column-gap: 50px;
+     margin-left: 30%;
+
   }
 
   .right-side {

@@ -45,33 +45,46 @@
 const playButton = document.querySelector("#PLAY")
 playButton.addEventListener('click', createBoard)
 
+//event listener for Quit button
+let clearBoard = document.querySelector("#Board-container")
+
+function quitGame() {
+    clearBoard.innerHTML = ""
+    playButton.addEventListener('click', createBoard)
+}    
+
+const quitButton = document.querySelector("#QUIT")
+quitButton.addEventListener('click', quitGame)
+
 // document.getElementById('cards').appendChild(img)
 
 function createBoard() {
     shuffleCards(cardArray);
     // remove existing divs with class of each card, so it doesn't create board twice once click enter, add light side and dark side
-   //  document.querySelector('.each-card').remove()
 	for (let x = 0; x < cardArray.length; x++) {
-		// insert Hexagon background
+        // insert Hexagon background
 		let img = document.createElement("img");
 		img.src = "assets/pattern_hexagon-4_1_5_0-0_110_1__ffffff_868998.png";
-	        img.style.width = "100px"
+        img.style.width = "100px"
         img.style.height = "100px"
-
+        
+        playButton.removeEventListener('click', createBoard)
+        
         // insert character background
         let img2 = document.createElement('img')
         img2.src = cardArray[x].img
         img2.style.width="100px"
         img2.style.height="100px"
         
-	let card = document.createElement("div");
+        let card = document.createElement("div");
         // card.setAttribute("id", cardArray[x].id);
-				card.setAttribute("data-name", cardArray[x].name);
-				card.setAttribute("class", "each-card");
+        card.setAttribute("data-name", cardArray[x].name);
+        card.setAttribute("class", "each-card");
         card.append(img)
         card.append(img2)
         card.addEventListener('click', flipCard)
         boardContainer.append(card);
+        // document.querySelector('.each-card').remove()
 		
 	}
 }
@@ -193,45 +206,6 @@ function checkWon() {
 
 // // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKnm5e6G5H021X9UBvvaDR5-wWIbyAJ6m5A&usqp=CAU
 
-
-// let grid = document.querySelector(".grid"); 
-// let scoreBoard = document.querySelector(".scoreBoard"); 
-// let popup = document.querySelector(".popup"); 
-// let playAgain = document.querySelector(".playAgain"); 
-// let clickBoard = document.querySelector(".clickBoard"); 
-// let imgs; 
-// let cardsId = []; 
-// let cardsSelected = []; 
-// let cardsWon = 0; 
-// let clicks = 0;
-//     //add a click function for images 
-    
-//     imgs = document.querySelectorAll("img");
-//     Array.from(imgs).forEach(img => 
-//     img.addEventListener("click", flipCard)
-//     ) 
-    
-//     document.addEventListener("DOMContentLoaded", function () {
-//     })
-
-    
-// const buttonsContainer = document.querySelector(".buttons-container");
-// let cards = []
-
-// let lockBoard = false; 
-// let score = 0;
-
-// document.querySelector(".score").textContent = score; 
-
-// fetch("./data/cards.json")
-// .then((res) => res.json())
-// .then((data) => {
-//     cards = [...data,...data];
-//     shuffleCards();
-//     generateCards();
-// });
-
-   // player.innerHTML = ''
 
      
         //remove event listener from play button once cards are added to the card holder
