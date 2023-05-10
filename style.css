@@ -4,19 +4,21 @@ body {
     background-color: #cccccc;
     background-repeat: no-repeat;
     background-size: cover;
+    /*opacity: 0.75; */
   }
 
   h1 {
     font-family: sans-serif;
     text-align: center;
-    color: blue;
-    font-size: 35px;
+    color: white;
+    font-size: 25px;
      }
   
   .instructions-container {
       display: flex;
       align-content: stretch;
       flex-direction: column;
+      opacity: 2;
     }
 
    .buttons-container {
@@ -96,7 +98,7 @@ body {
   }
 
   /*use flexbox for styling cards*/
-  
+
     /*character card*/
   .each-card.flipped>img:last-child {
     z-index: 2;

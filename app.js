@@ -5,10 +5,10 @@
     // fit screen in css or late
 
     let lightScore = 0
+
     let darkScore = 0
 
-
-    let weight = 10;
+    let weight = 11
 
     let shuffledCardArray = []
 
@@ -94,21 +94,19 @@ function createBoard() {
 let firstCard, secondCard;
                                
 
-// function addWeightedValue(winningCard) {
-//     if (winningCard.lightSide) {
-//         lightScore += 1 * weight;
-//     } else if(winningCard.darkSide){
-//         darkScore += 1* weight;
-//     }
-//     weight--;
-// }
 
+function disableCards() {
+    firstCard.removeEventListener("click", flipCard);
+    secondCard.removeEventListener("click", flipCard);
+    resetBoard();
+    
+}
 function flipCard () {
     console.log(this);
     if (this === firstCard) return;
-
+    
     this.classList.add("flipped");
-
+    
     if (!firstCard) {
         firstCard = this;
         return; 
@@ -118,25 +116,31 @@ function flipCard () {
         // console.log(firstCard,secondCard);
         firstCard.flipped = true;    
         secondCard.flipped = true;
-     disableCards ();
-    
-    //  console.log(firstCard.flipped)
-    //  addWeightedValue(firstCard)
-
+        addWeightedValue(secondCard)
+        console.log(firstCard.flipped)
+        console.log(weight)
+        console.log(lightScore)
+        console.log(darkScore)
+        
+        disableCards ();
+        
     } else {
         unflipCards ();
-        // firstCard.flipped = false;
-        // secondCard.flipped = false;
+        firstCard.flipped = false;
+        secondCard.flipped = false;
     }
 }
 
-
-function disableCards() {
-    firstCard.removeEventListener("click", flipCard);
-    secondCard.removeEventListener("click", flipCard);
-    resetBoard();
-
+function addWeightedValue(winningCard) {
+    if (winningCard.allegiance === "light-side") {
+        console.log(winningCard.allegiance)
+        return (lightScore +=( 1 * weight));
+    } else if(winningCard.allegiance ==="dark-side"){
+        return (darkScore += ( 1 * weight));
+    }
+    weight--;
 }
+
 function unflipCards() {
     setTimeout(() => {
         firstCard.classList.remove("flipped");
