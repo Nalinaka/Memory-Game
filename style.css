@@ -23,6 +23,7 @@ body {
 
    .buttons-container {
     text-align: center;  
+    display: inline-block;
    }
   
    #Board-container {
