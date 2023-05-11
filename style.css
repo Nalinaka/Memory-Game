@@ -15,8 +15,11 @@ body {
      }
   
   .Instructions-Container {
+    font-family: sans-serif;
+    box-shadow:0 0 0 10px blue;
+    font-size: 20px;
     width: 25%;
-    text-shadow: 0 0 10px black;
+    color: white;
     margin: 0 auto;
     } 
 
@@ -46,7 +49,6 @@ body {
      justify-content: center;
      justify-items: center;
      width: 500px; 
-     /*height: 500px;*/
      grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
      grid-template-rows: auto auto;
      row-gap: 50px;
@@ -119,23 +121,10 @@ body {
     z-index: 1;
   }
 
-  /*use flexbox for styling cards*/
-
     /*character card*/
   .each-card.flipped>img:last-child {
     z-index: 2;
   }
-   /* .img, .img2 {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    transform: rotateY  (180deg);
-    border-radius: 15px;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-  /*  backface-visibility: hidden; */
 
   .img2 {
     transform: rotateY(180deg);
@@ -150,45 +139,5 @@ body {
   transform: rotateY(180deg);
 }
 
-/*.card-holder {
-  font-size: 25px;
-}
-
-#card-holder {
-  padding: 50px 200px
- }
-
   /* alternative image link for background 
   /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThRQ6Sox1pTQTdELzJP3SSXi0vVL15yfNLTQ&usqp=CAU");
-
-  .container{
-  width:1000px;
-  margin:0 auto;
-  display:flex;
-  justify-content: space-between;
-}
-button{
-  &:focus{
-    outline:none;
-  }
-
-.face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  background-color:whitesmoke;  
-  border-radius:10px;
-}
-.front, .back{
-  transition: all .5s linear;
-}
-.front{
-  background-image:url('https://i.imgur.com/W3tra4F.gif');
-  z-index:1;
-  box-shadow: 5px 5px 5px #aaa;
-}
-.back{
-  box-shadow: 0 0 0 #aaa;
-}
