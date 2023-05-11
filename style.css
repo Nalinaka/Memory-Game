@@ -14,27 +14,43 @@ body {
     font-size: 25px;
      }
   
-  /* .instructions-container {
-      display: flex;
-      align-content: stretch;
-      flex-direction: column;
-      opacity: 2;
-    } */
+  .Instructions-Container {
+    width: 25%;
+    text-shadow: 0 0 10px black;
+    margin: 0 auto;
+    } 
+
+  #PLAY {
+    width: 150px;
+
+  }
+
+  #QUIT {
+    width: 150px;
+
+  }
 
    .buttons-container {
     text-align: center;  
-    display: inline-block;
+    color: white;
+    flex-direction: row;
+    flex-wrap: wrap;
    }
+
+  .buttons-container > div {
+    margin: 0 auto;
+  }
   
    #Board-container {
      display: grid;
      justify-content: center;
-     width: 750px; 
-     height: 750px;
-     grid-template-columns: auto auto auto auto auto;
-     column-gap: 50px;
-     margin-left: 30%;
-
+     justify-items: center;
+     width: 500px; 
+     /*height: 500px;*/
+     grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+     grid-template-rows: auto auto;
+     row-gap: 50px;
+     column-gap: 40px;
   }
 
   .right-side {
@@ -120,8 +136,6 @@ body {
     height: 100%;
     transform-style: preserve-3d;
   /*  backface-visibility: hidden; */
-     
-
 
   .img2 {
     transform: rotateY(180deg);

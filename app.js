@@ -175,16 +175,6 @@ function resetBoard() {
     lockBoard = false; 
 }
 
-// function restart() {
-//     resetBoard();
-//     shuffleCards();
-//     score = 0;
-//     document.querySelector(".score").textContent = score;
-//     boardContainer.innerHTML = "";
-//     generateCards();
-// }
-// following code above from https://youtu.be/xWdkt6KSirw
-
 
 function checkWon() {
     allCards = 0
@@ -205,18 +195,7 @@ function checkWon() {
 }
 }
 
-    // Initially used: 
+// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKnm5e6G5H021X9UBvvaDR5-wWIbyAJ6m5A&usqp=CAU
+// following code above from https://youtu.be/xWdkt6KSirw
 
-    // function checkWon() {
-    //     if (cardsWon == cardArray.length / 2) {
-    //     alert("You won") 
-    //     setTimeout(()=> popup.style.display = "flex" ,300); 
-    //     }
-    //     }
-
-// // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKnm5e6G5H021X9UBvvaDR5-wWIbyAJ6m5A&usqp=CAU
-
-
-     
-        //remove event listener from play button once cards are added to the card holder
      
