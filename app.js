@@ -65,7 +65,7 @@ function createBoard() {
 	for (let x = 0; x < cardArray.length; x++) {
         // insert Hexagon background
 		let img = document.createElement("img");
-		img.src = "assets/pattern_hexagon-4_1_5_0-0_110_1__ffffff_868998.png";
+		img.src = "assets/pattern_hexagon-4_1_2_0-0_0_1__1132ee_1e29f6.png";
         img.style.width = "100px"
         img.style.height = "100px"
         
