@@ -8,6 +8,8 @@
 
     let darkScore = 0
 
+    let allCards = 0
+
     let weight = 11
 
     let shuffledCardArray = []
@@ -36,8 +38,7 @@
        
     ];
 
-    let allCards = 0
-
+    
     const boardContainer = document.getElementById("Board-container")
 
     
@@ -80,6 +81,7 @@ function createBoard() {
         // card.setAttribute("id", cardArray[x].id);
         card.setAttribute("data-name", cardArray[x].name);
         card.setAttribute("class", "each-card");
+        card.setAttribute("data-allegiance", cardArray[x].allegiance);
         card.append(img)
         card.append(img2)
         card.addEventListener('click', flipCard)
@@ -127,8 +129,11 @@ function flipCard () {
     secondCard = this;
     if (secondCard.getAttribute('data-name') === firstCard.getAttribute('data-name')) {
         // console.log(firstCard,secondCard);
-        firstCard.flipped = true;    
-        secondCard.flipped = true;
+       //  firstCard.flipped = true;
+        cardArray.forEach(e => {
+            if (e.name === firstCard.getAttribute('data-name')) e.flipped = true
+        })
+       // secondCard.flipped = true;
         addWeightedValue(secondCard)
         console.log(firstCard.flipped)
         console.log(weight)
@@ -136,6 +141,7 @@ function flipCard () {
         console.log(darkScore)
         
         disableCards ();
+        checkWon();
         
     } else {
         unflipCards ();
@@ -145,13 +151,14 @@ function flipCard () {
 }
 
 function addWeightedValue(winningCard) {
-    if (winningCard.allegiance === "light-side") {
-        console.log(winningCard.allegiance)
+    console.log(winningCard.getAttribute('data-allegiance'))
+    weight = weight - 1;
+    if (winningCard.getAttribute('data-allegiance') === 'light-side') {
         return (lightScore +=( 1 * weight));
-    } else if(winningCard.allegiance ==="dark-side"){
+    } else  if (winningCard.getAttribute('data-allegiance') === 'dark-side') {
         return (darkScore += ( 1 * weight));
     }
-    weight--;
+    
 }
 
 function unflipCards() {
@@ -180,15 +187,18 @@ function resetBoard() {
 
 
 function checkWon() {
+    allCards = 0
     for (let i = 0; i < cardArray.length; i++) {
 
-    if (cardArray[i].flipped = true) {  
+    if (cardArray[i].flipped === true) {  
         allCards++
         if ((allCards===20) && (lightScore > darkScore)){
             alert("You are a Jedi!")
         
             } else if((allCards===20) && (lightScore < darkScore)){
             alert("You are a Sith!")
+        } else if (allCards === 20){
+            alert("You are neither")
         }
     }
     
