@@ -1,9 +1,3 @@
-// Clicking on Enter button
-// New images displayed of hidden cards = creating board
-// then game startes - shuffling board
-    //define functions 
-    // fit screen in css or late
-
     let lightScore = 0
 
     let darkScore = 0
