@@ -1,3 +1,5 @@
+// Assign values to the variables
+
     let lightScore = 0
 
     let darkScore = 0
@@ -7,6 +9,8 @@
     let weight = 11
 
     let shuffledCardArray = []
+
+    // Card array - links, value of card, default: unfault
 
     let cardArray = [
         {name: "Yoda", id:"Yoda1", allegiance: "light-side", flipped: false, img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ApB54YlPe5lmJ41Zo415suCA9sWim_aTHA&usqp=CAU", },
@@ -33,16 +37,17 @@
     ];
 
     
-    const boardContainer = document.getElementById("Board-container")
+const boardContainer = document.getElementById("Board-container")
 
     
-    //event listener for play button
+//event listener for play button
 const playButton = document.querySelector("#PLAY")
 playButton.addEventListener('click', createBoard)
 
 //event listener for Quit button
 let clearBoard = document.querySelector("#Board-container")
 
+// Function to quit game using "quit" function with event listener
 function quitGame() {
     clearBoard.innerHTML = ""
     playButton.addEventListener('click', createBoard)
@@ -51,8 +56,7 @@ function quitGame() {
 const quitButton = document.querySelector("#QUIT")
 quitButton.addEventListener('click', quitGame)
 
-// document.getElementById('cards').appendChild(img)
-
+// Function to create the start of the game
 function createBoard() {
     shuffleCards(cardArray);
     // remove existing divs with class of each card, so it doesn't create board twice once click enter, add light side and dark side
@@ -85,7 +89,7 @@ function createBoard() {
 	}
 }
 
-
+// Function to shuffle the cards randomly
     function shuffleCards(cardArray) {
         let currentIndex = cardArray.length,
           randomIndex,
@@ -102,14 +106,15 @@ function createBoard() {
                   
 let firstCard, secondCard;
                                
-
-
+// Function to disable cards if you find a match
 function disableCards() {
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
     resetBoard();
     
 }
+
+//Function to flip cards when playing game
 function flipCard () {
     console.log(this);
     if (this === firstCard) return;
@@ -144,6 +149,7 @@ function flipCard () {
     }
 }
 
+// Function to weigh the value of the cards, (this determines the outcome of game)
 function addWeightedValue(winningCard) {
     console.log(winningCard.getAttribute('data-allegiance'))
     weight = weight - 1;
@@ -155,6 +161,7 @@ function addWeightedValue(winningCard) {
     
 }
 
+// Function to unflip cards if they are not a match 
 function unflipCards() {
     setTimeout(() => {
         firstCard.classList.remove("flipped");
@@ -163,13 +170,14 @@ function unflipCards() {
     }, 1000);
 }
 
+// function to reset the board if not match is found
 function resetBoard() {
     firstCard = null;
     secondCard = null;
     lockBoard = false; 
 }
 
-
+// function to show all matched card and alert that shows you outcome score! 
 function checkWon() {
     allCards = 0
     for (let i = 0; i < cardArray.length; i++) {
