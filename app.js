@@ -188,8 +188,3 @@ function checkWon() {
     
 }
 }
-
-// https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKnm5e6G5H021X9UBvvaDR5-wWIbyAJ6m5A&usqp=CAU
-// following code above from https://youtu.be/xWdkt6KSirw
-
-     
